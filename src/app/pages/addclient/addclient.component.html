@@ -1,0 +1,117 @@
+<app-header></app-header>
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <app-sidenavbar></app-sidenavbar>
+    </div>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid">
+                <!-- <h1 class="mt-4">Dashboard</h1> -->
+                <ol class="breadcrumb mt-3 mb-3">
+                    <li class="breadcrumb-item active">Add New Client</li>
+                </ol>
+                <form  [formGroup]="addclientdata">
+                 <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <label> Institution Code *</label>
+                            <input type="text" class="form-control"  formControlName="code">
+                            <span class="error" *ngIf="code!.invalid && code!.touched">required</span>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <label> Institution Name *</label>
+                            <input type="text" class="form-control" formControlName="name">
+                            <span class="error" *ngIf="name!.invalid && name!.touched">required</span>
+                        </div>
+                    </div>
+                </div>
+                
+                 <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <label> User Name *</label>
+                            <input type="text" class="form-control"  formControlName="userName">
+                            <span class="error" *ngIf="userName!.invalid && userName!.touched">required</span>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                           <label>Designation</label>
+                            <input type="text" class="form-control" formControlName="designation">
+                            <span class="error" *ngIf="designation!.invalid && designation!.touched">required</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                           <label> Mobile No *</label>
+                            <input type="text" class="form-control" formControlName="userMobileNo">
+                            <span class="error" *ngIf="userMobileNo!.invalid && userMobileNo!.touched">required</span>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <label>E-Mail ID *</label>
+                            <input type="text" class="form-control" formControlName="userEmail">
+                            <span class="error" *ngIf="userEmail!.invalid && userEmail!.touched">required</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <label> Division</label>
+                            <input type="text" class="form-control" formControlName="division">
+                            <span class="error" *ngIf="division!.invalid && division!.touched">required</span>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                           <label> Location</label>
+                            <input type="text" class="form-control" formControlName="location">
+                            <span class="error" *ngIf="location!.invalid && location!.touched">required</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <label>Password *</label>
+                            <input type="text" class="form-control" formControlName="password">
+                            <span class="error" *ngIf="password!.invalid && password!.touched">required</span>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                           <label> Employee ID *</label>
+                            <input type="text" class="form-control" formControlName="empId">
+                            <span class="error" *ngIf="empId!.invalid && empId!.touched">required</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <label> Address *</label>
+                            <textarea class="form-control" rows="4" id="comment" formControlName="address"></textarea>
+                            <span class="error" *ngIf="address!.invalid && address!.touched">required</span>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                           <label>Logo </label>
+                            <input type="file" class="form-control" (change)="onfileselected($event)" style="height: 110px;padding: 37px 0 0 130px;" >
+                            <span class="error" *ngIf="logo!.invalid && logo!.touched">required</span>
+                        </div>
+                    </div>
+                </div>
+                
+              <div class="form-group">
+                    <div class="text-center">
+                        
+                            <button type="submit" class="btn fill__btn" (click)="addclientdetails()">Save</button>
+                                              
+                            <button type="button" class="btn fill__btn">Cancel</button>
+                    </div>
+              </div> 
+              </form> 
+               
+            </div>
+        </main>
+    </div>
+</div>

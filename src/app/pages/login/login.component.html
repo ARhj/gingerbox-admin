@@ -1,0 +1,36 @@
+<div class="container-fluid mt-5">
+			
+    <div class="row">
+        <div id="example2" class="col-lg-4 offset-lg-4 col-12 border mt-5" style="background-color: #f3f3f3">
+            <div class="text-center mt-5">
+            <img src="../../../assets/logo.png" >
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="loginstatus">
+                username/password You Have Entered is worng..!!
+            </div>
+            <form class="form-padding" [formGroup]="logindetails">
+                
+                <div class="form-group">
+                    <input type="text" class="form-control" id="" placeholder="Username" formControlName="username">
+                    <span class="error" *ngIf="username!.invalid && username!.touched">required</span>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="" placeholder="Password" formControlName="password">
+                    <span class="error" *ngIf="password!.invalid && password!.touched">required</span>
+                </div>
+                <div class="alert alert-info" role="alert" *ngIf="emptyspace">
+                    NO Empty Space Allowed..!!
+                  </div>
+                <!-- </form>
+                
+                <form style="background-color: #D4DEDF;margin: 2px;"> -->
+                <div class="form-group text-center form-padding">
+                    <button type="submit" class="btn btn-success form-control mb-3" style="padding: .3rem;font-weight: 500" (click)="checklogin()">Submit</button>
+                    <a href="">Forgot password?</a>
+                </div>
+            </form>
+            <p class="text-center">Copyright & Powered by <a href="">Gingerbox Mobility Pvt Ltd.</a></p>
+        </div>
+    </div>
+    
+</div>
