@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup , FormControl , Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import { ApisService } from '../../apis.service';
+import { clientService } from '../client.service';
+import { adminDetail, client } from './addClient.model';
 
 
 @Component({
@@ -32,7 +34,7 @@ addclientdata =new FormGroup({
 //variable declaration
 selectedfile : any = null;
 
-  constructor(private router : Router , private url : ApisService) { }
+  constructor(private router : Router , private clientService : clientService) { }
 
   ngOnInit(): void {
   }
@@ -73,11 +75,26 @@ selectedfile : any = null;
 
     }else{
       this.addclientdata.get('logo')?.setValue(this.selectedfile);//object of image
-     this.url.addclient(this.addclientdata.value).subscribe(data=>{
+     let clientDetails = new client();
+     clientDetails.code =this.addclientdata.value.code;
+     clientDetails.name =this.addclientdata.value.name;
+     clientDetails.address =this.addclientdata.value.address;
+     clientDetails.division =this.addclientdata.value.divison;
+     clientDetails.location =this.addclientdata.value.location;
+     clientDetails.logo =this.addclientdata.value.logo;
+     clientDetails.adminDetails =new adminDetail();
+     clientDetails.adminDetails.empId =this.addclientdata.value.empId;
+     clientDetails.adminDetails.userName =this.addclientdata.value.userName;
+     clientDetails.adminDetails.userEmail =this.addclientdata.value.userEmail;
+     clientDetails.adminDetails.userMobileNo =this.addclientdata.value.userMobileNo;
+     clientDetails.adminDetails.password =this.addclientdata.value.password;
+     clientDetails.adminDetails.designation =this.addclientdata.value.designation;
+     this.clientService.postClient(clientDetails).subscribe(data=>{
       
       console.log(this.addclientdata.value);
       
        console.log(data,'addclient sucess')
+       alert("Client added sucessfully");
      },error=>{
       console.log(this.addclientdata.value);
        console.log(error,'addclient error')

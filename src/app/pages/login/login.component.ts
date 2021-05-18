@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup , FormControl , Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import { ApisService } from '../../apis.service';
+import { login } from './login.model';
+import { loginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +18,7 @@ export class LoginComponent implements OnInit {
     password : new FormControl('',Validators.required)
   });
 
-  constructor(private router : Router , private url : ApisService) { }
+  constructor(private router : Router , private service : loginService) { }
 
   ngOnInit(): void {
   }
@@ -34,10 +36,13 @@ export class LoginComponent implements OnInit {
     if(this.logindetails.value.username == "" || this.logindetails.value.password == ""){
        this.emptyspace = true;
     }
-    else {
-     
-      this.url.userlogin(this.logindetails.value).subscribe(data=>{
+    else { 
+      let loginDetail = new login();
+      loginDetail.userEmail = this.logindetails.value.username;
+      loginDetail.password = this.logindetails.value.password;
+      this.service.userlogin(loginDetail).subscribe(data=>{
       //  console.log(data,"data")
+      data = data.body;
        localStorage.setItem('userdetails',JSON.stringify(data));
        var logiedinuserdata = JSON.parse(localStorage.getItem('userdetails') || '{}');
       //  console.log(logiedinuserdata.data.id); particular value access
@@ -47,12 +52,9 @@ export class LoginComponent implements OnInit {
       },error=>{
         this.loginstatus = true;
         // console.log(error,"error console");
-      });  
+      });
       //  console.log(btoa("Admin@123"),"QWer mein de raha h");
       // console.log(atob("QWRtaW5AMTIz"),"admin@123") 
-     
-    }
-    
+    }    
   }
-
 }

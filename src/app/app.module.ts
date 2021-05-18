@@ -15,6 +15,7 @@ import { AddclientComponent } from './pages/addclient/addclient.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { AssignprofileComponent } from './pages/assignprofile/assignprofile.component';
 import { SidenavbarComponent } from './layouts/sidenavbar/sidenavbar.component';
+import { StorageService } from './services/storage.service';
 
 
 @NgModule({
@@ -36,10 +37,11 @@ import { SidenavbarComponent } from './layouts/sidenavbar/sidenavbar.component';
     HttpClientModule
   ],
   providers: [{
-    provide :  HTTP_INTERCEPTORS,
+    provide : HTTP_INTERCEPTORS,
     useClass : TokenInterceptorService,
     multi : true
-  }, AuthGuard],
+  }, AuthGuard,StorageService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {  
+}
