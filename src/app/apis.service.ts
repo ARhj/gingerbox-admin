@@ -132,11 +132,6 @@ profilesend(id : any){
 
 // ============================add client api==========================================
 
-addclient(data : any){
-  let url = environment.svc + "/en/v1/organization";
-  return this.http.post(url,data);
-}
-
 // ============================ Organization api =====================================
 selectclient(){
   let url = environment.svc + "/en/v1/organization";

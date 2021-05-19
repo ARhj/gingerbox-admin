@@ -16,7 +16,7 @@ import { HeaderComponent } from './layouts/header/header.component';
 import { AssignprofileComponent } from './pages/assignprofile/assignprofile.component';
 import { SidenavbarComponent } from './layouts/sidenavbar/sidenavbar.component';
 import { StorageService } from './services/storage.service';
-
+import { AddUserComponent } from './pages/userManagement/add-user-component/add-user-component.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { StorageService } from './services/storage.service';
     AddclientComponent,
     HeaderComponent,
     AssignprofileComponent,
-    SidenavbarComponent
+    SidenavbarComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

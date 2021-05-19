@@ -1,0 +1,82 @@
+<app-header></app-header>
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <app-sidenavbar></app-sidenavbar>
+    </div>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid">
+                <!-- <h1 class="mt-4">Dashboard</h1> -->
+                <ol class="breadcrumb mt-3 mb-3">
+                    <li class="breadcrumb-item text-light">Add User</li>
+                </ol> 
+                <div class="form-group mt-3">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <label> Emplyoee Id *</label>
+                            <input [ngClass]="{'input-error': !isEmployeeIdValid}" (input)="validateData()"  type="text" class="form-control" [(ngModel)]="userDetail.empId"  name="">
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <label> User Name *</label>
+                            <input [ngClass]="{'input-error': !isUserNameValid}"  (input)="validateData()" type="text"  class="form-control" [(ngModel)]="userDetail.userName" name="">
+                        </div>
+                    </div>
+                </div>
+                
+                 <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                           <label> Mobile No. *</label>
+                            <input [ngClass]="{'input-error': !isMobileNumValid}" (input)="validateData()" type="text" class="form-control" [(ngModel)]="userDetail.userMobileNo" name="">
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <label>E-Mail ID *</label>
+                            <input [ngClass]="{'input-error': !isEmailValid}" (input)="validateData()" type="text" class="form-control" [(ngModel)]="userDetail.userEmail" name="">
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <label> Designation</label>
+                            <input type="text" class="form-control" [(ngModel)]="userDetail.designation" name="">
+                        </div>
+                        <div class="col-lg-6 col-12">
+                           <label> Role *</label>
+                            <select [ngClass]="{'input-error': !isRoleValid}" (input)="validateData()" [(ngModel)]="userDetail.roleID"  class="form-control">
+                                    <option>Select</option>
+                                    <option>1 </option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <label>Password *</label>
+                            <input type="password" (input)="validateData()" [ngClass]="{'input-error': !isPasswordValid}" [(ngModel)]="userDetail.password"  class="form-control" name="">
+                        </div>
+                        <div class="col-lg-6 col-12">
+                           <label> Reporting Manager </label>
+                            <select [(ngModel)]="userDetail.managerId " class="form-control">
+                                    <option>Select</option>
+                                    <option>1 </option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                </select>
+                        </div>
+                    </div>
+                    <div class="form-group mt-5 mb-5">
+                        <div class="text-center">
+                            <button type="button" (click)="saveUser()" class="btn fill__btn">Save</button>
+                       </div>
+                   </div>
+                </div>                    
+            </div>
+        </main>
+    </div>
+</div>

@@ -1,4 +1,6 @@
 export const environment = {
   production: false,
-  svc: "https://kswd.gingerbox.in/api"
+  svc: "https://kswd.gingerbox.in/api",
+  culture: "en",
+  version: "v1"
 };

@@ -6,12 +6,14 @@ import { AssignprofileComponent } from './pages/assignprofile/assignprofile.comp
 import { DashbordComponent } from './pages/dashbord/dashbord.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { AddUserComponent } from './pages/userManagement/add-user-component/add-user-component.component';
 
 const routes: Routes = [
   {path:'',component: LoginComponent},
   {path:'dashbord',canActivate : [AuthGuard] ,component: DashbordComponent},
   {path:'profile',canActivate : [AuthGuard],component: ProfileComponent},
   {path:'addclient',canActivate : [AuthGuard],component: AddclientComponent},
+  {path:'addUser',canActivate : [AuthGuard],component: AddUserComponent},
   {path:'assignprofile',canActivate : [AuthGuard],component: AssignprofileComponent},
 ];
 
